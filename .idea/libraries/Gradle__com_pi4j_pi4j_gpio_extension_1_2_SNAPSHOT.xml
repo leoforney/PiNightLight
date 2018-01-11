@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.pi4j:pi4j-gpio-extension:1.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.pi4j/pi4j-gpio-extension/1.2-SNAPSHOT/cdd95bf08561098d7128faba0c47d9d78db11132/pi4j-gpio-extension-1.2-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.pi4j/pi4j-gpio-extension/1.2-SNAPSHOT/ffcdb163ab0bbb381cab2f6af62357918b40c7f8/pi4j-gpio-extension-1.2-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

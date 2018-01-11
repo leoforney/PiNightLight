@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.pi4j:pi4j-core:1.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.pi4j/pi4j-core/1.2-SNAPSHOT/1de5f1fddc727989184a5cc742ee4c47e8127e80/pi4j-core-1.2-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.pi4j/pi4j-core/1.2-SNAPSHOT/a4989e6dfeb1720ba460256e28b99d0a15e2ec51/pi4j-core-1.2-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

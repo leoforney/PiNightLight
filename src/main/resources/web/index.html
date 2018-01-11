@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PiNightLight web control</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
+    <style>
+        body {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $.get("/brightness", function (data, status) {
+                $("#currentBrightness").text(data);
+                $("[type=range]").val(data);
+            });
+            $.get("/color", function (data, status){
+                $("#colorselector").val(data).click().click();
+            });
+            $('#datasentwarning').hide();
+            $('#postbutton').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/color",
+                    data: "#" + ($("#colorselector").val()),
+                    success: function () {
+                        console.log("Great, it works!");
+                        $("#datasentwarning").show();
+                    }
+                });
+                return false;
+            });
+            $("[type=range]").change(function(){
+                var newval=$(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/brightness",
+                    data: newval,
+                    success: function () {
+                        console.log("Great, it works!");
+                        $("#datasentwarning").show();
+                        $("#currentBrightness").text(newval);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div id="datasentwarning" class="alert alert-success">
+        <strong>Success!</strong> Data sent to raspberry pi!
+    </div>
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <h2>PiNightLight Web Controller</h2>
+            Color: <input id="colorselector" value="ff0000" class="jscolor">
+            <div id="postbutton" class="btn btn-default">Update color</div>
+            <hr />
+            <table>
+                <tr>
+                    <td width="40%">Brightness: <span id="currentBrightness">100</span>%<input type="range" id="controls" value="50" min="0" max="100" maxlength="3" width="40%"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<script src="js/jscolor.min.js"></script>
+</body>
+</html>
