@@ -4,13 +4,13 @@
     <facet type="web" name="Web Gradle : PiNightLight.war">
       <configuration>
         <webroots>
-          <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
+          <root url="file://C:\Users\forne\IdeaProjects\PiNightLight\src\main\webapp" relative="/" />
         </webroots>
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../build/classes/main" />
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
@@ -19,30 +19,28 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.7" level="project" />
-    <orderEntry type="library" name="Gradle: com.pi4j:pi4j-core:1.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: com.pi4j:pi4j-device:1.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: com.pi4j:pi4j-gpio-extension:1.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: com.pi4j:pi4j-core:1.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:21.0" level="project" />
     <orderEntry type="library" name="Gradle: com.sparkjava:spark-core:2.6.0" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
-    <orderEntry type="library" name="Gradle: com.luckycatlabs:SunriseSunsetCalculator:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-simple:1.7.9" level="project" />
-    <orderEntry type="library" name="Gradle: com.coreoz:wisp:1.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.pi4j:pi4j-gpio-extension:1.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-webapp:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-server:9.4.4.v20170414" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-servlet:9.4.4.v20170414" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-security:9.4.4.v20170414" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-servlet:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-client:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-http:9.4.4.v20170414" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-io:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-xml:9.4.4.v20170414" level="project" />
-    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-servlet:9.4.4.v20170414" level="project" />
-    <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414" level="project" />
-    <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty.websocket:websocket-api:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-util:9.4.4.v20170414" level="project" />
-    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-security:9.4.4.v20170414" level="project" />
-    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-client:9.4.4.v20170414" level="project" />
   </component>
 </module>

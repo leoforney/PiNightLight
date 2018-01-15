@@ -1,18 +1,9 @@
 package tk.leoforney.pinightlight;
 
-import com.coreoz.wisp.Scheduler;
-import com.coreoz.wisp.schedule.Schedules;
-import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
-import com.luckycatlabs.sunrisesunset.dto.Location;
-import spark.Request;
-import spark.Response;
-import spark.Route;
+import com.google.gson.Gson;
 
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.function.BiConsumer;
+import java.util.Observable;
+import java.util.Observer;
 
 import static com.pi4j.wiringpi.Gpio.wiringPiSetup;
 import static spark.Spark.*;
@@ -22,26 +13,23 @@ import static spark.Spark.*;
  */
 public class RunnerClass implements Observer {
 
-    SunriseSunsetCalculator calculator;
-    Scheduler scheduler;
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+    ColorGuide guide;
+    Gson gson;
 
-    public enum CurrentTime {
-        DAY,
-        NIGHT
-    }
 
     public void run() throws InterruptedException {
         wiringPiSetup();
         port(80);
 
+        gson = new Gson();
+
+        guide = new ColorGuide();
+
         LedStrip ledStrip = LedStrip.getInstance();
         ledStrip.addObserver(this);
 
-        scheduler = new Scheduler();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             ledStrip.close();
-            scheduler.gracefullyShutdown();
         }));
 
         staticFileLocation("/web");
@@ -74,26 +62,30 @@ public class RunnerClass implements Observer {
             return response.body();
         });
 
-        get("/config", (request, response) -> ConfigFile.getInstance().getCurrentConfigAsString());
-
-        post("/config", (request, response) -> {
-            ConfigFile.getInstance().writeConfig(request.body());
-            response.body("Writing new config...");
-            return response.body();
-        });
-
-        ConfigFile.getInstance().getCurrentConfig().brightnessSchedule.forEach(new BiConsumer<String, Integer>() {
-            @Override
-            public void accept(String s, Integer integer) {
-                Runnable setBrightessRunnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        scheduler.schedule(this, Schedules.executeAt(s));
-                        ledStrip.setBrightness(integer);
+        post("/webhook", (request, response) -> {
+            tk.leoforney.pinightlight.Request desRequest = gson.fromJson(request.body(), tk.leoforney.pinightlight.Request.class);
+            String action = desRequest.result.action;
+            switch (action) {
+                case "brightness":
+                    String brightnessString = desRequest.result.parameters.get("percentage").replace("%", "");
+                    int brightness = Integer.parseInt(brightnessString);
+                    response.body(makeResponse("Brightness set to " + brightness));
+                    System.out.println("--Google brightness request--: " + brightness);
+                    ledStrip.setBrightness(brightness);
+                    break;
+                case "color":
+                    String color = desRequest.result.parameters.get("color").toLowerCase();
+                    String hex = guide.getColor(color);
+                    if (hex.equals("")) {
+                        response.body(makeResponse("Could not find the color " + color));
+                    } else {
+                        ledStrip.setRGBfromHex(hex);
+                        response.body(makeResponse("Color set to " + color));
+                        System.out.println("--Google color request--: " + color);
                     }
-                };
-                scheduler.schedule(setBrightessRunnable, Schedules.executeAt(s));
+                    break;
             }
+            return response.body();
         });
 
         while (Thread.currentThread().isAlive()) {
@@ -102,22 +94,9 @@ public class RunnerClass implements Observer {
 
     }
 
-    public void refreshCalculatorInstance() {
-        Config config = ConfigFile.getInstance().getCurrentConfig();
-        Location location = new Location(config.latitude, config.longitude);
-        calculator = new SunriseSunsetCalculator(location, config.timezone);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Date addDays(Date date, int days) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.DATE, days); //minus number would decrement the days
-        return cal.getTime();
+    public static String makeResponse(String speech) {
+        tk.leoforney.pinightlight.Response response = new tk.leoforney.pinightlight.Response(speech);
+        return new Gson().toJson(response);
     }
 
     @Override

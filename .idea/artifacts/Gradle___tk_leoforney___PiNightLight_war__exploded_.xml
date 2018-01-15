@@ -14,35 +14,33 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="PiNightLight_main" />
-          <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.7" />
-          <element id="library" level="project" name="Gradle: com.pi4j:pi4j-core:1.2-SNAPSHOT" />
           <element id="library" level="project" name="Gradle: com.pi4j:pi4j-device:1.2-SNAPSHOT" />
+          <element id="library" level="project" name="Gradle: com.pi4j:pi4j-gpio-extension:1.2-SNAPSHOT" />
+          <element id="library" level="project" name="Gradle: com.pi4j:pi4j-core:1.2-SNAPSHOT" />
           <element id="library" level="project" name="Gradle: com.google.guava:guava:21.0" />
           <element id="library" level="project" name="Gradle: com.sparkjava:spark-core:2.6.0" />
           <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
-          <element id="library" level="project" name="Gradle: com.luckycatlabs:SunriseSunsetCalculator:1.2" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-simple:1.7.9" />
-          <element id="library" level="project" name="Gradle: com.pi4j:pi4j-gpio-extension:1.2-SNAPSHOT" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.13" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-server:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-webapp:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-server:9.4.4.v20170414" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-servlet:9.4.4.v20170414" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-security:9.4.4.v20170414" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-server:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-servlet:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-client:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-http:9.4.4.v20170414" />
+          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-io:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-xml:9.4.4.v20170414" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-servlet:9.4.4.v20170414" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-common:9.4.4.v20170414" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-client:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-api:9.4.4.v20170414" />
           <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-util:9.4.4.v20170414" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-security:9.4.4.v20170414" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-client:9.4.4.v20170414" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coreoz/wisp/1.0.0/1532b8c356828c7c5e01d93c5301834371730dc2/wisp-1.0.0.jar" />
         </element>
       </element>
     </root>

@@ -31,7 +31,5 @@ dependencies {
     compile 'com.google.guava:guava:21.0'
     compile "com.sparkjava:spark-core:2.6.0"
     compile 'commons-codec:commons-codec:1.10'
-    compile 'com.luckycatlabs:SunriseSunsetCalculator:1.2'
     compile 'org.slf4j:slf4j-simple:1.7.9'
-    compile 'com.coreoz:wisp:1.0.0'
 }
